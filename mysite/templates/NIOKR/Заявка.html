@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link rel="stylesheet" href="{% static 'css/NIOKR.css' %}">
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <div class="header">
+                <a href="http://127.0.0.1:8000">
+                <img src="http://s32.postimg.org/vw1p7ng6t/whitelogo.jpg" width="95" height="100">
+                <h1>
+                Неликвидные товары
+                </h1>
+                </a>
+                <div class="menu_simple">
+
+                <ul>
+                    <li><a href="#">Link 1</a></li>
+                    <li><a href="#">Link 2</a></li>
+                    <li><a href="#">Link 3</a></li>
+                    <li><a href="#">Link 4</a></li>
+                    <li><a href="#">Link 5</a></li>
+                </ul>
+                <br />
+                </div>
+            </div>
+        <div class="content">
+            <div>
+            <form action="http://127.0.0.1:8000/request/", method="POST">
+                {% csrf_token %}
+                {{form.as_p}}
+                <input type="submit" value="Отправить">  
+            </form>
+            
+            </div>
+            <div class="link_to_main_page">
+                <input type="submit" value="На Главную" onclick="window.location='http://127.0.0.1:8000'">
+            </div>    
+            <footer>
+
+            </footer>
+        </div>    
+    </body>
+</html>

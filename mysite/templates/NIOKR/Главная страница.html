@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link rel="stylesheet" href="{% static 'css/NIOKR.css' %}">
+        <style>
+
+        </style>
+    </head>
+    <body>
+        
+            <div class="header">
+                <a href="http://127.0.0.1:8000">
+                <img src="http://s32.postimg.org/vw1p7ng6t/whitelogo.jpg" width="95" height="100">
+                <h1>
+                Неликвидные товары
+                </h1>
+                </a>
+                <div class="menu_simple">
+
+                <ul>
+                    <li><a href="http://127.0.0.1:8000">Главная</a></li>
+                    <li><a href="http://127.0.0.1:8000/catalogs">Каталог</a></li>
+                    <li><a href="http://127.0.0.1:8000/basket">Корзина</a></li>
+                    <li><a href="http://127.0.0.1:8000/contacts">Контакты</a></li>
+                </ul>
+                <br />
+                </div>
+            </div>
+            <div class="content">
+            {% if user.is_authenticated %}
+                {% if client %}
+                <div class="login">
+                    <input type="submit" value="Bыход" onclick="window.location='http://127.0.0.1:8000/logout/'">
+                    <input type="submit" value="Подать Заявку" onclick="window.location='http://127.0.0.1:8000/request/'">
+                </div>
+                    {% else %}
+                    <div class="login">
+                        <input type="submit" value="Bыход" onclick="window.location='http://127.0.0.1:8000/logout/'">
+                        <input type="submit" value="Просмотреть Заявки" onclick="window.location='http://127.0.0.1:8000/expert/'">
+                    </div>
+                {% endif %}  
+                {% else %}
+                <div class="login">
+                    <input type="submit" value="Bход" onclick="window.location='http://127.0.0.1:8000/login/'">
+                    <input type="submit" value="Регистрация" onclick="window.location='http://127.0.0.1:8000/signup/'">
+                </div>   
+            {% endif %} 
+            <div class="greeting"> 
+                <p>Добро пожаловать,</p>
+                <p>Если вы хотите подать заявку на выполнение НИОКР,</p><p>вам необходимо зарегестрироваться.</p>
+                <p>Если вы уже зарегестрованы, можете сразу переходить ко входу</p>
+            </div>
+            <div class="contacts">
+                <h2>Контакты</h2>
+                <p>Адрес: Россия, 454080 Челябинск, проспект Ленина, 76</p>
+                <p>Тел./факс: +7 (351) 267-99-00</p>
+                <p>E-mail: admin@susu.ac.ru</p>
+                
+            </div>
+            <footer>
+
+            </footer>
+        </div>
+    </body>
+</html>
