@@ -1,0 +1,250 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+* {
+    margin: 0;
+}
+body {
+    line-height: 1;
+}
+tr {
+
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table, th, td {
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 1px solid black;
+    font-family: 'Jura';
+    font-size: 14px;
+    padding: 15px;
+}
+.table tr{
+    opacity: 0.7;
+}
+
+html{
+    height: 100%;
+}
+body {
+    background-color: white;
+    background-image: url(diploma-sidesbackground.jpg);
+    height: 100%;
+
+}
+a {
+    text-decoration: none;
+}
+.content {
+    background-color: white;
+    width: 50%;
+    max-width: 1250px;
+    min-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    min-height: 100%;
+    opacity: 0.9;
+
+}
+.login {
+    position: absolute;
+    top: 40px; 
+    right:40px; 
+    margin:0 auto; 
+    margin-right: 0px;
+}
+.content form {
+    
+}
+input {
+    font-family: 'Jura';
+    font-size: 24px;
+}
+
+.content form {
+    position: relative;
+    padding: 10px;
+}
+
+br { clear:left }
+
+.menu_simple {
+    width: 100%;
+    background-color: #005555;
+    font-family: 'Jura';
+    font-size: 24px;
+}
+
+.menu_simple ul {
+    margin: 0; padding: 0;
+    float: left;
+}
+
+.menu_simple ul li {
+    display: inline;
+}
+
+.menu_simple ul li a {
+    float: left; text-decoration: none;
+    color: white; 
+    padding: 10.5px 11px;
+    background-color:  #005555;
+}
+ 
+.menu_simple ul li a:visited {
+    color: white;
+}
+ 
+.menu_simple ul li a:hover, .menu_simple ul li .current {
+    color: white;
+    background-color: #5FD367;
+}
+
+.header {
+    background-color: white;
+    width: 50%;
+    max-width: 1250px;
+    min-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    opacity: 0.7;
+
+}
+.header img {
+    float: left;
+    
+}
+.header h1 {
+    position: relative;
+    padding: 26px;
+}
+.greeting {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    font-style: italic;
+}
+h1 {
+    color: black;
+    text-align: left;
+    font-family: 'Jura';
+    font-size: 48px;
+}
+p {
+    padding-bottom: 10px;
+}
+
+p label{
+    font-family: "Times New Roman";
+    font-size: 25px;
+}
+.button {
+    position: relative;
+    background-color: white;
+    border: none;
+    font-family: 'Jura';
+    font-size: 14px;
+    color: black;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    width: 150px;
+    max-height: 100px;
+    margin-bottom: 50px;
+    margin-right: 50px;
+    text-align: center;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+}
+.contacts {
+    max-width: 250px;
+    position: absolute;
+    bottom: 25px;
+    right: 0;
+}
+.contacts h2 {
+    margin-right: 250px;
+    font-family: 'Jura';
+    font-size: 36px;
+}
+.contacts p {
+    font-family: 'Times New Roman';
+    font-size: 14px;
+
+}
+.errors {
+    font-family: 'Times New Roman';
+    font-size: 10px;
+}
+.form {
+    font-size: 25px;
+    background-color: white;
+    width:100%;
+    height:25px;
+    position:absolute;
+}
+.link_to_main_page {
+    position:  absolute;
+    bottom: 25px;
+    right: 0;
+    margin: 25px;
+}
+footer {
+    background-color:  #005555;
+    width:100%;
+    height:25px;
+    position:absolute;
+    bottom: 0;
+
+}
+table {
+    margin: 15px;
+}
+
+.request {
+    font-size: 15px;
+    font-style: italic;
+}
+
+.product {
+    font-family: 'Jura';
+    font-size: 14px;
+}

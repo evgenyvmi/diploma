@@ -1,6 +1,7 @@
 # This Python file uses the following encoding: utf-8
 from django.forms import ModelForm
-from .models import Request
+from .models import Order_product
+from .models import Order
 from .models import Client
 from django import forms
 from django.contrib.auth.models import User
@@ -44,4 +45,13 @@ class ClientCreationForm(ModelForm):
 	class Meta:
 		model = Client
 		fields = ("organization", "position", "phone_number", "address")
-	
+
+class AddProductForm(ModelForm):
+	class Meta:
+		model = Order_product
+		fields = ('quantity',)
+
+class OrderForm(ModelForm):
+	class Meta:
+		model = Order
+		fields = ('is_temporary',)

@@ -1,0 +1,16 @@
+{% extends 'NIOKR/base.html' %}
+{% block content %}
+<table class="catalog">
+<tr>
+    {% for product in products %}
+    <td>
+    <div class="products">
+	    <a href="{{ product.slug }}">
+	        <p>{{product}}</p>
+	        <img src="{{product.icon.url}}">
+	    </a>
+	</div>  
+	</td>  
+    {% endfor %}
+</tr>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'NIOKR/base.html' %}
+    {% block content %}
+	    <div class="product">
+	        <h1>{{product.name}}</h1>
+	        <img src="{{product.icon.url}}">
+	        <h2>Описание:</h2>
+	        <p>{{product.description}}</p>
+	        <h2>Оценочная стоимость:</h2>
+	        <p>{{product.price}}</p>
+	    </div>
+	    {% if user.is_authenticated %}
+			
+			<form action="http://127.0.0.1:8000/catalogs/{{category}}/{{slug}}/", method="POST">
+			<table>
+			<td>
+				{% csrf_token %}
+	            {{form.as_p}}
+	        </td>
+	        <td>
+		    	<div class="add_product">
+	                    <input type="submit" value="Добавить в корзину">
+	            </div>
+	        </td>
+            </table>
+            </form>
+        {% else %}
+        	<div class="reminder">(для того, чтобы добавить товар в корзину, авторизуйтесь)</div>
+        {% endif %}
+    {% endblock %}

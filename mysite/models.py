@@ -33,26 +33,26 @@ class Category(models.Model):
 
 class Product(models.Model):
 	name = models.CharField(verbose_name=u'Наименование', max_length=50)
+	slug = models.SlugField(max_length=50, null=True)
 	description = models.TextField(verbose_name=u'Описание')
 	price = models.CharField(verbose_name=u'Диапозон стоимости', max_length=50)
-	icon = models.ImageField(upload_to='icons/')
+	icon = models.ImageField()
 	category = models.ForeignKey(Category, null=True, blank=True, verbose_name=u'Категория', related_name='category')
 	def __unicode__(self):
 		return self.name
 
 
-class Request(models.Model):
-	product = models.ManyToManyField(Product, blank=True, verbose_name=u'Товар', related_name='product')
-	client = models.ForeignKey(Client, null=True, blank=True, verbose_name=u'Заказчик', related_name='client')
-	is_assigned = models.BooleanField(verbose_name=u'Назначена', default=False)
+class Order(models.Model):
+	client = models.ForeignKey(Client, null=True, blank=True, verbose_name=u'Покупатель', related_name='client')
+	is_temporary = models.NullBooleanField(verbose_name='Является корзиной', blank=True)
 
 	def __unicode__(self):
 		return self.client.user.first_name + ' ' + self.client.user.last_name 
-'''
-class Request_product(models.Model):
+
+class Order_product(models.Model):
+	order = models.ForeignKey(Order, null=True, blank=True, verbose_name=u'Заказ', related_name='order')
 	product = models.ForeignKey(Product, null=True, blank=True, verbose_name=u'Товар', related_name='product')
-	request = models.ForeignKey(Request, null=True, blank=True, verbose_name=u'Заказ', related_name='product')
+	quantity = models.IntegerField(null=True, blank=True, verbose_name=u'Количество')
 
 	def __unicode__(self):
-		return self.name
-'''
+		return self.order.client.user.last_name + ' ' + self.product.name
