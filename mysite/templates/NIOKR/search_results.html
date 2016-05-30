@@ -1,0 +1,16 @@
+{% extends 'NIOKR/base.html' %}
+    {% block content %}
+    <h2>По запросу '{{search_string}}' найдено:</h2>
+    <tr>
+    {% for product in objects %}
+    <td>
+    <div class="products">
+	    <a href="http://127.0.0.1:8000/catalogs/{{product.category.id}}/{{ product.slug }}/">
+	        <p>{{product}}</p>
+	        <img src="{{product.icon.url}}">
+	    </a>
+	</div>  
+	</td>  
+    {% endfor %}
+    </tr>
+    {% endblock %}

@@ -1,5 +1,7 @@
 # This Python file uses the following encoding: utf-8
 from django.shortcuts import render
+from simple_search import generic_search, perform_search
+
 from .models import Order
 from .models import Client
 from .models import Category
@@ -30,6 +32,7 @@ def post_list(request):
 		if client is not None:
 			print 'client'
 			a = True
+	print request.GET
 	return render(request, 'NIOKR/Главная страница.html', {'client': a})
 def post_login(request):
 	if request.POST:
@@ -113,13 +116,10 @@ def products(request, category):
 
 def product(request, category, slug):
 	product = Product.objects.get(slug= slug)
-	current_client= Client.objects.filter(user=request.user)
-	order = Order.objects.get(client=current_client, is_temporary=True)
-	print product
-	print order
 	if request.method == 'POST':
 		form = AddProductForm(request.POST)
-		
+		current_client= Client.objects.filter(user=request.user)
+		order = Order.objects.get(client=current_client, is_temporary=True)
 		if form.is_valid():
 			order_product= form.save()
 			order_product.order = order
@@ -132,3 +132,16 @@ def product(request, category, slug):
 class DeleteProductFromCart(DeleteView):
 	model = Order_product
 	success_url = reverse_lazy('order_product-list')
+
+QUERY = "search-query"
+
+MODEL_MAP = {
+	Product: ["name", "category__name"]
+}
+
+def search(request):
+	objects = []
+	for model, fields in MODEL_MAP.iteritems():
+		objects += generic_search(request, model, fields)
+		print request.GET.get('q', "")
+	return render(request, "NIOKR/search_results.html", {"objects": objects,"search_string": request.GET.get('q', ""),})

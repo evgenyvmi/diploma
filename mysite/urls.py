@@ -15,4 +15,5 @@ urlpatterns = [
     url(r'^catalogs/$', views.catalogs, name='catalogs'),
     url(r'^catalogs/([0-9]{1,2})/$', views.products, name='products'),
     url(r'^catalogs/((?P<category>\d+))/(?P<slug>[\w-]+)/$', views.product, name='product'),
+    url(r'^search/$', views.search, name='search'),
 ] 

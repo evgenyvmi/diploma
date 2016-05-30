@@ -249,9 +249,9 @@ footer {
     max-height: 300px;
 }
 
-.product h2{
+h2{
     font-family: 'Jura';
-    font-size: 28px;
+    font-size: 24px;
 }
 
 .products img {
@@ -260,4 +260,12 @@ footer {
 }
 .buy_button {
     padding-left: 300px;
+}
+.menu_simple form {
+    display: inline;
+    text-decoration: none;
+    padding: 10.5px 11px;
+}
+.menu_simple label {
+    color: white;
 }

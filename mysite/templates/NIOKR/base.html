@@ -24,8 +24,10 @@
                     <li><a href="http://127.0.0.1:8000/catalogs">Каталог</a></li>
                     <li><a href="http://127.0.0.1:8000/basket">Корзина</a></li>
                     <li><a href="http://127.0.0.1:8000/contacts">Контакты</a></li>
-                    <form>
-                      <input type="search" >
+                    <form action="http://127.0.0.1:8000/search/", method="GET">
+                        {% csrf_token %}
+                        <label for="id_q">Поиск по товарам:</label>
+                           <input type="text" name="q" id="id_q"/>
                     </form>
                 </ul>
                 <br />
